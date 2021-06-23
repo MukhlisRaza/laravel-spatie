@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;
 
+    // HasRoles trait means that role and permission that we create now assign to the user model
+
     /**
      * The attributes that are mass assignable.
      *

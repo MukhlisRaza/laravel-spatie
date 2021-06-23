@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('post', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::get('post/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+Route::post('store', [App\Http\Controllers\PostController::class, 'store']);
+Route::match(['get', 'post'], 'post/{post?}/edit/', [App\Http\Controllers\PostController::class, 'edit']);

@@ -32,8 +32,8 @@ class HomeController extends Controller
         // Role::create(['name' => 'writer']);
         // Permission::create(['name' => 'write post']);
         // $permission = Permission::create(['name' => 'edit post']);
-        // $role = Role::findById(1);
-        // $permission = Permission::findById(2);
+        // $role = Role::findById(4);
+        // $permission = Permission::findById(4);
         // $permission->removeRole($role);
         // $role->revokePermissionTo($permission);
         // $role->givePermissionTo($permission);
@@ -44,6 +44,9 @@ class HomeController extends Controller
         // auth()->user()->assignRole('writer');
         // auth()->user()->givePermissionTo('edit post');
         // return auth()->user()->getAllPermissions();
+
+        // auth()->user()->getPermissionsViaRoles();
+        // return auth()->user()->getPermissionsViaRoles();
 
         return view('home');
     }

@@ -10,6 +10,8 @@ class PostController extends Controller
     //
     public function index()
     {
+        // return auth()->user()->getPermissionsViaRoles();
+        // auth()->user()->givePermissionTo('edit post');
         $post = Post::get()->toArray();
         // echo "<pre>";
         // print_r($post);

@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header">Posts {{$posttitle}}</div>
                 <div class="card-body">
-                    <form action="{{url('post/'.$posts['id'].'/edit/')}}" method="post" enctype="multipart/form-data">
+                    <form @if(empty($posts['id'])) action="{{url('store/')}}" @else action="{{url('post/'.$posts['id'].'/edit/')}}" @endif method="post" enctype="multipart/form-data">
+
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" id="title" name="title" placeholder="Title" @if(!empty($posts['title'])) value="{{$posts['title']}}" @else value="{{old('title')}}" @endif>

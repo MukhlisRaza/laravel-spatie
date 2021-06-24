@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -65,5 +66,21 @@ class PostController extends Controller
 
 
         return view('post-create-edit')->with(compact('posttitle', 'posts'));
+    }
+
+    public function view($posts)
+    {
+        $post = Post::where('id', $posts)->get()->toArray();
+        // echo "<pre>";
+        // print_r($post);
+        // die;
+        return view('post-view')->with(compact('post'));
+    }
+
+    public function publish()
+    {
+        $message = "Post publish successfully";
+        Session::flash('success_message', $message);
+        return redirect()->back();
     }
 }
